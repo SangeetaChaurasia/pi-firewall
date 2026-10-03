@@ -5,7 +5,7 @@ an AI agent, detects prompt-injection attacks across 9 attack types and multiple
 input formats, and forwards a cleaned version of the content instead of blindly
 passing it through.
 
-## Status (Day 3 — weekend build)
+## Status
 
 Working end-to-end pipeline: **extract -> clean -> detect (rules + decoders +
 heuristics + optional ML classifier) -> decide -> redact**, plus a **tool-call
@@ -69,7 +69,7 @@ submission:
   shirt", "from now on please reply in bullet points") — see `tests/test_ml_layer.py`
   for the two tests that lock this behaviour in.
 
-## Layer 3 (OpenAI judge) and multi-turn sessions - built Oct 2
+## Layer 3 (OpenAI judge) and multi-turn sessions
 
 - **Layer 3** (`firewall/detectors/llm_judge.py`): an OpenAI model that judges only the
   *ambiguous* (QUARANTINE) cases - exactly the over-defense slice the ML classifier gets wrong.
