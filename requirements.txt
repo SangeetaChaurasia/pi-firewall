@@ -1,0 +1,23 @@
+# Core (Day 1)
+pymupdf>=1.24
+python-docx>=1.1
+beautifulsoup4>=4.12
+lxml>=5.0
+pillow>=10.1
+pytesseract>=0.3.10
+pytest>=8.0
+
+# Layer 2 (ML classifier) - CPU build, install on YOUR machine (not needed to run
+# the test suite or the L1-only evaluation, which both work without these):
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install transformers
+
+# Demo UI (weekend build) - install to run `streamlit run app.py`:
+#   pip install streamlit
+
+# External benchmark validation - install to run scripts/fetch_external_benchmark.py:
+#   pip install datasets
+
+# Layer 3 (LLM judge) + real-LLM demo agent - needs OPENAI_API_KEY in .env (see .env.example):
+#   pip install openai
+# (the .env loader is built in - python-dotenv is NOT required)

@@ -1,0 +1,13 @@
+# secrets - NEVER commit
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
+.streamlit/secrets.toml
+
+.hf_cache/
