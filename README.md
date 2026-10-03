@@ -45,7 +45,7 @@ Further documents:
 Works with **no API key and no model download** (Layer 1 only):
 
 ```bash
-git clone <this-repo-url> pi-firewall
+git clone https://github.com/SangeetaChaurasia/pi-firewall.git
 cd pi-firewall
 python -m venv .venv
 .venv\Scripts\activate            # Windows   (macOS/Linux: source .venv/bin/activate)
