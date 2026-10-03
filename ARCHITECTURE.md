@@ -113,7 +113,7 @@ OCR text, source code, image (Tesseract OCR).
 
 | Measurement | Result | Caveat |
 |---|---|---|
-| Unit/integration tests | **172 passing** | includes 56 round-3 tests with *paraphrased* attacks and benign developer phrasing |
+| Unit/integration tests | **174 passing** | includes 56 round-3 tests with *paraphrased* attacks and benign developer phrasing |
 | Own labelled set (53 cases, 8 formats) | 100% recall, 0% hard FP | authored by the team; not independent |
 | External benchmark `zachz/prompt-injection-benchmark` (200 attacks, 103 benign) | 78% → 90% → **100% recall, 0 FP** | rules were tuned after seeing its misses, so this is *fit*, not generalisation — report it as such |
 | Same benchmark, L1 only | 21% → 36.5% recall, 0 FP | shows how much the ML layer carries |
@@ -129,7 +129,7 @@ Reproduce: `pytest -q` · `python scripts/evaluate.py` · `python scripts/fetch_
 * **F3 (≥ 7 attack types): claimed with margin** — 9 of 9 types have dedicated detection (§5), plus two features
   beyond the list: the action-time ToolGuard and the multi-turn SessionTracker.
 * **D2 (structured/textual input, high demonstrable reliability): claimed.** Evidence: 11 input formats, a measured
-  eval harness with hard/soft false-positive separation, 172 tests, an external benchmark, and a reproducible CLI.
+  eval harness with hard/soft false-positive separation, 174 tests, an external benchmark, and a reproducible CLI.
 * **D3 (highly heterogeneous multimodal, high demonstrable reliability): *not* claimed.** We handle many formats and
   images via OCR, but images are only OCR'd (no vision model, so text-free visual attacks and typographic attacks that
   OCR misses are out of scope), and we have no independent reliability measurement on multimodal inputs.

@@ -101,7 +101,7 @@ makes two tiny live calls to the judge. Costs a fraction of a cent. **Never comm
 ## 2. Verify the project works
 
 ```bat
-pytest -q                                      :: whole suite (expect 172 passed)
+pytest -q                                      :: whole suite (expect 174 passed)
 pytest tests\test_attacks_v3.py -q             :: one file
 pytest -k "split_payload" -q                   :: only tests whose name contains this text
 pytest -x -q                                   :: stop at the first failure

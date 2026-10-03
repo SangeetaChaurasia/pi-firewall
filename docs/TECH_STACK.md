@@ -32,7 +32,7 @@ Companion to [`ARCHITECTURE.md`](../ARCHITECTURE.md) (design) and [`command.md`]
 | `datasets` | Downloads the external benchmark from Hugging Face | Reproducible external validation; an offline CSV copy ships in `data/external/` |
 | `openai` | Layer-3 judge and the real-LLM victim agent in the demo | Official SDK; timeouts and retries built in |
 | `streamlit` | Four-tab demo (Try it, Agent demo, Tool-call guard, Multi-turn session) | Fastest route to a demonstrable, intuitive prototype |
-| `pytest` | 172 automated tests | Standard; parametrised cases keep attack/benign lists readable |
+| `pytest` | 174 automated tests | Standard; parametrised cases keep attack/benign lists readable |
 | Python stdlib (`re`, `unicodedata`, `base64`, `binascii`, `codecs`, `hashlib`, `secrets`, `email`, `dataclasses`, `argparse`, `csv`) | Detection engine, decoding, hashing/caching, e-mail parsing, CLI | Keeps the core dependency-light and easy to audit |
 
 **Deliberately not used:** `python-dotenv` (a 40-line loader avoids one more dependency), LangChain/LlamaIndex
@@ -64,7 +64,7 @@ LLM only sees the small ambiguous remainder.
 |---|---|---|
 | `data/eval/cases.py` | 53 hand-built cases across 8 input formats (PDF, DOCX, HTML, e-mail, Markdown, JSON, code, image), attacks and benign | Format-level reliability; hard vs. soft false-positive split |
 | `zachz/prompt-injection-benchmark` (Hugging Face; copy at `data/external/zachz_pib.csv`) | 303 rows: 200 injections, 103 benign | Independent-ish check; **our rules were tuned after seeing its misses, so report it as tuned-on** |
-| `tests/` | 172 pytest cases incl. paraphrased attacks and benign developer phrasing | Regression safety net |
+| `tests/` | 174 pytest cases incl. paraphrased attacks and benign developer phrasing | Regression safety net |
 | `demo_assets/` (`scripts/make_demo_assets.py`) | 9 attack files + 3 clean controls, regenerated on demand | The video demo and a quick end-to-end smoke test |
 
 Metrics we report: recall, precision, false-positive rate split into **hard** (content altered or lost) and
@@ -95,7 +95,7 @@ Metrics we report: recall, precision, false-positive rate split into **hard** (c
 | Significance and relevance | Indirect injection is the practical attack on agents that read web pages, files and e-mail |
 | Innovation and originality | Hidden-content isolation, decode-and-rescan, asymmetric-trust LLM judge, multi-turn tracker, action-time guard |
 | Effective use of AI | Local classifier for recall + LLM judge for ambiguity; AI is central but bounded, not bolted on |
-| Technical complexity and execution | 11 format extractors, 78 rules, 3 detection layers, 172 tests, reproducible evaluation |
+| Technical complexity and execution | 11 format extractors, 78 rules, 3 detection layers, 174 tests, reproducible evaluation |
 | Agentic / autonomous capability | Tool-call guard and session tracking operate on an agent's actions and conversation |
 | Business / user impact | Stops data leaks and unauthorised actions; sanitising keeps legitimate content flowing |
 | Prototype quality and usability | Streamlit app, CLI, generated demo files, one-command checks |
